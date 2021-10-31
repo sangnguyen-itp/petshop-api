@@ -1,11 +1,12 @@
 package ldap
 
 import (
-	"github.com/vjeantet/ldapserver"
 	"log"
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/vjeantet/ldapserver"
 )
 
 type LDAPServer interface {
@@ -63,7 +64,7 @@ func handleSearch(w ldapserver.ResponseWriter, m *ldapserver.Message) {
 
 func handleAdd(w ldapserver.ResponseWriter, m *ldapserver.Message) {
 	ar := m.GetAddRequest()
-	res := ldapserver.NewAddResponse(ldapserver.)
+	res := ldapserver.NewAddResponse(ldapserver.ApplicationAddResponse)
 	log.Println(ar)
 	w.Write(res)
 }
