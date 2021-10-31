@@ -1,12 +1,10 @@
 FROM golang:alpine
 
-RUN yum update -y
-RUN mkdir -p bin
-
-COPY . /bin
 WORKDIR /bin
+COPY . /bin
 
-RUN go build -o petshop-api
+RUN go build main.go
 
-CMD [ "/petshop-api"]
+CMD [ "./main"]
+
 EXPOSE 8080
